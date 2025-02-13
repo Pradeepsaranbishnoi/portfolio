@@ -38,7 +38,7 @@ const clients = [
   {
     id: 6,
     name: "Desert",
-    logo: "/apple.svg",
+    logo: "/image/water-tank.webp",
     link: "#",
   },
   {

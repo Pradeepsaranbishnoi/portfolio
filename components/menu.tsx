@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { X } from "lucide-react"
+import { IoClose } from "react-icons/io5"
 
 const menuItems = [
   { name: "About", href: "#about" },
@@ -10,7 +10,7 @@ const menuItems = [
   { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
-  // { name: "Buy Me a Coffee", href: "#buy-me-coffee" },
+  { name: "Buy Me a Coffee", href: "#buy-me-coffee" },
   { name: "Contact", href: "#contact" },
 ]
 
@@ -50,7 +50,7 @@ export function Menu() {
               onClick={() => setIsOpen(false)}
               className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
             >
-              <X className="w-5 h-5" />
+              <IoClose className="w-5 h-5" />
             </button>
 
             <nav className="grid gap-3 pt-8">

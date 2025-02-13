@@ -1,42 +1,71 @@
-"use client";
-import { useState, ChangeEvent, FormEvent } from "react";
+"use client"
+
+import { useState } from "react"
+import { IoSend } from "react-icons/io5"
+
+type Status = {
+  type: "success" | "error" | null
+  message: string
+}
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    subject: "",
-    message: "",
-  });
+  const [isLoading, setIsLoading] = useState(false)
+  const [status, setStatus] = useState<Status>({ type: null, message: "" })
 
-  const [loading, setLoading] = useState(false);
-  const [responseMsg, setResponseMsg] = useState("");
-
-  // Handle input change with proper event typing
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  // Handle form submission with proper event typing
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setLoading(true);
-
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
-
-    const result = await res.json();
-    setLoading(false);
-    setResponseMsg(result.message);
-
-    if (result.success) {
-      setFormData({ name: "", email: "", mobile: "", subject: "", message: "" });
+    setIsLoading(true);
+    
+    // Store a reference to the form
+    const form = e.currentTarget;
+  
+    // Reset status before new submission
+    setStatus({ type: null, message: "" });
+  
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      mobile: formData.get("mobile") as string,
+      subject: formData.get("subject") as string,
+      message: formData.get("message") as string,
+    };
+  
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+  
+      const result = await response.json();
+  
+      if (result.success) {
+        setStatus({
+          type: "success",
+          message: "Message sent successfully! I'll get back to you soon.",
+        });
+        // Reset the form using stored reference
+        form.reset();
+      } else {
+        throw new Error(result.message || "Something went wrong");
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      setStatus({
+        type: "error",
+        message: err instanceof Error ? err.message : "Failed to send message. Please try again.",
+      });
+    } finally {
+      setIsLoading(false);
     }
-  };
+  }
 
   return (
     <section id="contact" className="py-20 px-5">
@@ -46,72 +75,98 @@ export function Contact() {
         </h2>
 
         <div className="max-w-3xl mx-auto relative">
-          <div className="bg-white rounded-[32px] p-8">
+          <div className="bg-card rounded-[32px] p-8">
             <form onSubmit={handleSubmit} className="grid gap-6">
               <div className="grid md:grid-cols-2 gap-6">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Full Name *"
-                  className="w-full h-14 px-6 rounded-full bg-[#F5F5F5] text-dark placeholder:text-dark/60"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email *"
-                  className="w-full h-14 px-6 rounded-full bg-[#F5F5F5] text-dark placeholder:text-dark/60"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                />
+                <div>
+                  <label className="sr-only">Full Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Full Name *"
+                    className="w-full h-14 px-6 rounded-full bg-[#222] text-white placeholder:text-white/60"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="sr-only">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email *"
+                    className="w-full h-14 px-6 rounded-full bg-[#222] text-white placeholder:text-white/60"
+                    required
+                  />
+                </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <input
-                  type="tel"
-                  name="mobile"
-                  placeholder="Mobile No."
-                  className="w-full h-14 px-6 rounded-full bg-[#F5F5F5] text-dark placeholder:text-dark/60"
-                  value={formData.mobile}
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Subject *"
-                  className="w-full h-14 px-6 rounded-full bg-[#F5F5F5] text-dark placeholder:text-dark/60"
+                <div>
+                  <label className="sr-only">Mobile No.</label>
+                  <input
+                    type="tel"
+                    name="mobile"
+                    placeholder="Mobile No."
+                    className="w-full h-14 px-6 rounded-full bg-[#222] text-white placeholder:text-white/60"
+                  />
+                </div>
+                <div>
+                  <label className="sr-only">Subject</label>
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject *"
+                    className="w-full h-14 px-6 rounded-full bg-[#222] text-white placeholder:text-white/60"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="sr-only">Message</label>
+                <textarea
+                  name="message"
+                  placeholder="Message *"
+                  rows={6}
+                  className="w-full p-6 rounded-[32px] bg-[#222] text-white placeholder:text-white/60 resize-none"
                   required
-                  value={formData.subject}
-                  onChange={handleChange}
                 />
               </div>
 
-              <textarea
-                name="message"
-                placeholder="Message *"
-                rows={6}
-                className="w-full p-6 rounded-[32px] bg-[#F5F5F5] text-dark placeholder:text-dark/60 resize-none"
-                required
-                value={formData.message}
-                onChange={handleChange}
-              />
+              {status.type && (
+                <div
+                  className={`px-6 py-3 rounded-full text-center ${
+                    status.type === "success" ? "bg-green-500/10 text-green-500" : "bg-red-500/10 text-red-500"
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
 
               <button
                 type="submit"
-                className="w-32 h-[52px] rounded-full bg-yellow text-dark font-medium hover:bg-yellow/90 transition-colors flex items-center justify-center gap-2"
-                disabled={loading}
+                disabled={isLoading}
+                className="w-32 h-[52px] rounded-full bg-yellow text-dark font-medium hover:bg-yellow/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {loading ? "Sending..." : "Send"}
+                {isLoading ? (
+                  "Sending..."
+                ) : (
+                  <>
+                    Send <IoSend className="w-4 h-4" />
+                  </>
+                )}
               </button>
-
-              {responseMsg && <p className="text-center text-green-600 mt-4">{responseMsg}</p>}
             </form>
           </div>
+
+          <img
+            src="https://nikunjthesiya.vercel.app/assets/character.png"
+            alt=""
+            className="absolute -bottom-20 right-0 w-80"
+          />
         </div>
       </div>
     </section>
-  );
+  )
 }
+

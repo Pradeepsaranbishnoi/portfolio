@@ -100,8 +100,6 @@ export function Testimonials() {
               </div>
             </div>
           </div>
-
-          {/* Repeat similar structure for other testimonials */}
         </div>
       </div>
     </section>

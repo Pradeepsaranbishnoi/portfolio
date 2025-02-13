@@ -1,16 +1,19 @@
+import { FaReact, FaNodeJs, FaGitAlt, FaNpm, FaWordpress, FaFigma, FaBootstrap, FaGithub } from "react-icons/fa"
 import {
-  Braces,
-  Code2,
-  FileJson,
-  Layout,
-  Settings,
-  Smartphone,
-  PenToolIcon as Tool,
-} from "lucide-react"
-
-import { SiNextdotjs, SiReact, SiNodedotjs, SiTypescript, SiJavascript,SiHtml5, SiCss3, SiTailwindcss, SiJquery, SiBootstrap, SiExpress, SiMysql, SiRedux, SiGithub, SiWordpress, SiNpm, SiPostman  } from "react-icons/si";
-
-import { VscVscode } from "react-icons/vsc";
+  SiTypescript,
+  SiJavascript,
+  SiTailwindcss,
+  SiExpress,
+  SiMysql,
+  SiPostman,
+  SiJquery,
+  SiNextdotjs,
+} from "react-icons/si"
+import { VscCode } from "react-icons/vsc"
+import { BiCodeAlt } from "react-icons/bi"
+import { BsTools } from "react-icons/bs"
+import { MdOutlineDesignServices, MdDevices } from "react-icons/md"
+import { TbApi } from "react-icons/tb"
 
 export function Skills() {
   return (
@@ -28,43 +31,43 @@ export function Skills() {
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiReact />
+                <FaReact className="w-6 h-6 text-[#61DAFB]" />
                 <span>React.js</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiNextdotjs />
+                <SiNextdotjs className="w-6 h-6 text-white" />
                 <span>Next.js</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiTypescript />
+                <SiTypescript className="w-6 h-6 text-[#3178C6]" />
                 <span>TypeScript</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiJavascript />
+                <SiJavascript className="w-6 h-6 text-[#F7DF1E]" />
                 <span>JavaScript (ES6+)</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiHtml5 />
+                <BiCodeAlt className="w-6 h-6 text-[#E34F26]" />
                 <span>HTML5</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiCss3 />
+                <MdOutlineDesignServices className="w-6 h-6 text-[#1572B6]" />
                 <span>CSS3</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiTailwindcss />
+                <SiTailwindcss className="w-6 h-6 text-[#06B6D4]" />
                 <span>Tailwind CSS</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiBootstrap />
+                <FaBootstrap className="w-6 h-6 text-[#7952B3]" />
                 <span>Bootstrap</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiJquery />
+                <SiJquery className="w-6 h-6 text-[#0769AD]" />
                 <span>jQuery</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <Layout className="w-6 h-6" />
+                <MdDevices className="w-6 h-6 text-white" />
                 <span>Responsive Design</span>
               </div>
             </div>
@@ -77,19 +80,19 @@ export function Skills() {
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiNodedotjs />
+                <FaNodeJs className="w-6 h-6 text-[#339933]" />
                 <span>Node.js</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiExpress />
+                <SiExpress className="w-6 h-6 text-white" />
                 <span>Express.js</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <Code2 className="w-6 h-6" />
+                <TbApi className="w-6 h-6 text-white" />
                 <span>REST APIs</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiMysql />
+                <SiMysql className="w-6 h-6 text-[#4479A1]" />
                 <span>MySQL</span>
               </div>
             </div>
@@ -102,36 +105,28 @@ export function Skills() {
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiRedux />
-                <span>Redux</span>
+                <FaGitAlt className="w-6 h-6 text-[#F05032]" />
+                <span>Git</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiGithub />
-                <span>Git/GitHub</span>
+                <FaGithub className="w-6 h-6 text-white" />
+                <span>GitHub</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <FileJson className="w-6 h-6" />
-                <span>JSON</span>
+                <FaNpm className="w-6 h-6 text-[#CB3837]" />
+                <span>npm</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <Smartphone className="w-6 h-6" />
-                <span>Responsive Design</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiWordpress />
+                <FaWordpress className="w-6 h-6 text-[#21759B]" />
                 <span>WordPress</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <Tool className="w-6 h-6" />
+                <BsTools className="w-6 h-6 text-white" />
                 <span>Dev Tools</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <Settings className="w-6 h-6" />
+                <TbApi className="w-6 h-6 text-white" />
                 <span>API Integration</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <Braces className="w-6 h-6" />
-                <span>Clean Code</span>
               </div>
             </div>
           </div>
@@ -143,20 +138,24 @@ export function Skills() {
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <VscVscode />
+                <VscCode className="w-6 h-6 text-[#007ACC]" />
                 <span>VS Code</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiGithub />
+                <FaGithub className="w-6 h-6 text-white" />
                 <span>GitHub</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiNpm />
+                <FaNpm className="w-6 h-6 text-[#CB3837]" />
                 <span>npm</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-                <SiPostman />
+                <SiPostman className="w-6 h-6 text-[#FF6C37]" />
                 <span>Postman</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
+                <FaFigma className="w-6 h-6 text-[#F24E1E]" />
+                <span>Figma</span>
               </div>
             </div>
           </div>

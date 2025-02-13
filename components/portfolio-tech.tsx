@@ -1,4 +1,12 @@
-import { SiNextdotjs, SiReact, SiJavascript, SiTailwindcss, SiReacthookform, SiMaildotru } from "react-icons/si";
+import {
+  SiFigma,
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiReacthookform,
+  SiMaildotru,
+} from "react-icons/si"
 
 export function PortfolioTech() {
   return (
@@ -10,27 +18,31 @@ export function PortfolioTech() {
 
         <div className="flex flex-wrap justify-center gap-4">
           <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-            <SiJavascript />
+            <SiFigma className="w-6 h-6 text-[#F24E1E]" />
+            <span>Figma</span>
+          </div>
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
+            <SiJavascript className="w-6 h-6 text-[#F7DF1E]" />
             <span>JavaScript</span>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-            <SiReact />
+            <SiReact className="w-6 h-6 text-[#61DAFB]" />
             <span>ReactJS</span>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-            <SiNextdotjs />
+            <SiNextdotjs className="w-6 h-6 text-white" />
             <span>NextJS</span>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-            <SiTailwindcss />
+            <SiTailwindcss className="w-6 h-6 text-[#06B6D4]" />
             <span>Tailwind CSS</span>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-            <SiReacthookform />
+            <SiReacthookform className="w-6 h-6 text-[#EC5990]" />
             <span>React Hook Forms</span>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5">
-            <SiMaildotru />
+            <SiMaildotru className="w-6 h-6 text-[#339933]" />
             <span>Nodemailer</span>
           </div>
         </div>

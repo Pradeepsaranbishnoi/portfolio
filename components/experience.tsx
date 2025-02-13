@@ -69,7 +69,7 @@ export function Experience() {
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-xl">🏢</div>
                   <div>
-                    <h3 className="text-xl font-bold">Appit Simple Infotech Pvt. Ltd.</h3>
+                    <h3 className="text-xl font-bold">App It Simple Infotech Pvt. Ltd.</h3>
                     <div className="flex items-center gap-2 text-white/60">
                       <span>📍</span>
                       <span>Ahmedabad, India</span>

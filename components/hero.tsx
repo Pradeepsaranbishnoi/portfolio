@@ -1,4 +1,5 @@
-import { SiNextdotjs, SiReact, SiNodedotjs, SiTypescript  } from "react-icons/si";
+import { FaDownload } from "react-icons/fa"
+import { SiNextdotjs, SiReact, SiNodedotjs, SiTypescript } from "react-icons/si"
 
 export function Hero() {
   return (
@@ -38,15 +39,7 @@ export function Hero() {
               className="h-[52px] px-8 rounded-full border-2 border-yellow text-yellow hover:bg-yellow hover:text-dark transition-all flex items-center gap-2"
               download
             >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M21 15V16.2C21 17.8802 21 18.7202 20.673 19.362C20.3854 19.9265 19.9265 20.3854 19.362 20.673C18.7202 21 17.8802 21 16.2 21H7.8C6.11984 21 5.27976 21 4.63803 20.673C4.07354 20.3854 3.6146 19.9265 3.32698 19.362C3 18.7202 3 17.8802 3 16.2V15M17 10L12 15M12 15L7 10M12 15V3"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <FaDownload className="w-5 h-5" />
               Download CV
             </a>
             <a
@@ -60,19 +53,19 @@ export function Hero() {
           {/* Tech Stack */}
           <div className="flex flex-wrap items-center justify-center gap-4">
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm">
-              <SiNextdotjs />
+              <SiNextdotjs className="w-6 h-6" />
               <span>Next.js</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm">
-              <SiReact />
+              <SiReact className="w-6 h-6 text-[#61DAFB]" />
               <span>React.js</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm">
-              <SiNodedotjs />
+              <SiNodedotjs className="w-6 h-6 text-[#339933]" />
               <span>Node.js</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm">
-              <SiTypescript />
+              <SiTypescript className="w-6 h-6 text-[#3178C6]" />
               <span>TypeScript</span>
             </div>
           </div>

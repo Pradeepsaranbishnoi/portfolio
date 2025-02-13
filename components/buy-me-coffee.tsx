@@ -1,3 +1,5 @@
+import { FaFigma, FaCode } from "react-icons/fa"
+
 export function BuyMeCoffee() {
   return (
     <section id="buy-me-coffee" className="py-20 px-5">
@@ -8,11 +10,11 @@ export function BuyMeCoffee() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {/* Resume Template */}
-          <div className="bg-white rounded-[32px] p-6 overflow-hidden">
-            <h3 className="text-dark text-xl font-bold mb-4">Modern Resume / CV Template</h3>
+          <div className="bg-card rounded-[32px] p-6 overflow-hidden">
+            <h3 className="text-white text-xl font-bold mb-4">Modern Resume / CV Template</h3>
             <div className="flex items-center gap-2 mb-4">
-              <img src="https://nikunjthesiya.vercel.app/assets/figma.svg" alt="Figma" className="w-6 h-6" />
-              <span className="text-dark">Design</span>
+              <FaFigma className="w-6 h-6 text-[#F24E1E]" />
+              <span>Design</span>
             </div>
             <img
               src="https://nikunjthesiya.vercel.app/assets/resume-template.png"
@@ -20,17 +22,19 @@ export function BuyMeCoffee() {
               className="w-full rounded-2xl mb-6"
             />
             <div className="flex items-center justify-between">
-              <span className="text-dark text-2xl font-bold">$10</span>
-              <button className="px-6 py-3 rounded-full bg-yellow text-dark font-medium">Purchase Design</button>
+              <span className="text-2xl font-bold">$10</span>
+              <button className="px-6 py-3 rounded-full bg-yellow text-dark font-medium hover:bg-yellow/90 transition-colors">
+                Purchase Design
+              </button>
             </div>
           </div>
 
           {/* Portfolio UI */}
-          <div className="bg-white rounded-[32px] p-6 overflow-hidden">
-            <h3 className="text-dark text-xl font-bold mb-4">Modern Portfolio Website UI</h3>
+          <div className="bg-card rounded-[32px] p-6 overflow-hidden">
+            <h3 className="text-white text-xl font-bold mb-4">Modern Portfolio Website UI</h3>
             <div className="flex items-center gap-2 mb-4">
-              <img src="https://nikunjthesiya.vercel.app/assets/figma.svg" alt="Figma" className="w-6 h-6" />
-              <span className="text-dark">Design</span>
+              <FaFigma className="w-6 h-6 text-[#F24E1E]" />
+              <span>Design</span>
             </div>
             <img
               src="https://nikunjthesiya.vercel.app/assets/portfolio-ui.png"
@@ -38,17 +42,19 @@ export function BuyMeCoffee() {
               className="w-full rounded-2xl mb-6"
             />
             <div className="flex items-center justify-between">
-              <span className="text-dark text-2xl font-bold">$15</span>
-              <button className="px-6 py-3 rounded-full bg-yellow text-dark font-medium">Purchase Design</button>
+              <span className="text-2xl font-bold">$15</span>
+              <button className="px-6 py-3 rounded-full bg-yellow text-dark font-medium hover:bg-yellow/90 transition-colors">
+                Purchase Design
+              </button>
             </div>
           </div>
 
           {/* Portfolio Code */}
-          <div className="bg-white rounded-[32px] p-6 overflow-hidden">
-            <h3 className="text-dark text-xl font-bold mb-4">Modern Portfolio Website with Dark / Light Mode</h3>
+          <div className="bg-card rounded-[32px] p-6 overflow-hidden">
+            <h3 className="text-white text-xl font-bold mb-4">Modern Portfolio Website with Dark Mode</h3>
             <div className="flex items-center gap-2 mb-4">
-              <img src="https://nikunjthesiya.vercel.app/assets/code.svg" alt="Code" className="w-6 h-6" />
-              <span className="text-dark">Code</span>
+              <FaCode className="w-6 h-6 text-white" />
+              <span>Code</span>
             </div>
             <img
               src="https://nikunjthesiya.vercel.app/assets/portfolio-code.png"
@@ -56,8 +62,10 @@ export function BuyMeCoffee() {
               className="w-full rounded-2xl mb-6"
             />
             <div className="flex items-center justify-between">
-              <span className="text-dark text-2xl font-bold">$35</span>
-              <button className="px-6 py-3 rounded-full bg-yellow text-dark font-medium">Purchase Code</button>
+              <span className="text-2xl font-bold">$35</span>
+              <button className="px-6 py-3 rounded-full bg-yellow text-dark font-medium hover:bg-yellow/90 transition-colors">
+                Purchase Code
+              </button>
             </div>
           </div>
         </div>

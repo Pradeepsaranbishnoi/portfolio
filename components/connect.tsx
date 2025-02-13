@@ -1,4 +1,5 @@
-import { Github, Globe, LinkedinIcon, Mail, Phone } from "lucide-react"
+import { FaGithub, FaLinkedin } from "react-icons/fa"
+import { MdEmail, MdPhone, MdLanguage } from "react-icons/md"
 
 export function Connect() {
   return (
@@ -15,7 +16,7 @@ export function Connect() {
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-6 py-3 rounded-full bg-card hover:bg-card-light transition-colors"
           >
-            <LinkedinIcon className="w-6 h-6 text-[#0077B5]" />
+            <FaLinkedin className="w-6 h-6 text-[#0077B5]" />
             <span className="text-white font-medium">LinkedIn</span>
           </a>
 
@@ -25,7 +26,7 @@ export function Connect() {
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-6 py-3 rounded-full bg-card hover:bg-card-light transition-colors"
           >
-            <Github className="w-6 h-6 text-white" />
+            <FaGithub className="w-6 h-6 text-white" />
             <span className="text-white font-medium">GitHub</span>
           </a>
 
@@ -35,18 +36,18 @@ export function Connect() {
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-6 py-3 rounded-full bg-card hover:bg-card-light transition-colors"
           >
-            <Globe className="w-6 h-6 text-white" />
+            <MdLanguage className="w-6 h-6 text-white" />
             <span className="text-white font-medium">Portfolio</span>
           </a>
 
           <div className="w-full flex justify-center gap-4 mt-4">
             <div className="flex items-center gap-2 px-6 py-3 rounded-full bg-card">
-              <Mail className="w-6 h-6 text-[#EA4335]" />
+              <MdEmail className="w-6 h-6 text-[#EA4335]" />
               <span className="text-white font-medium">pradeepmadasar@gmail.com</span>
             </div>
 
             <div className="flex items-center gap-2 px-6 py-3 rounded-full bg-card">
-              <Phone className="w-6 h-6 text-[#4CAF50]" />
+              <MdPhone className="w-6 h-6 text-[#4CAF50]" />
               <span className="text-white font-medium">+91 8239103970</span>
             </div>
           </div>

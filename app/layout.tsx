@@ -35,7 +35,6 @@ export default function RootLayout({
             gtag('config', 'G-4ZGMWY2QQM');
           `}
         </Script>
-        
       </head>
       <body className={`${poppins.variable} font-sans bg-dark text-white`}>{children}</body>
     </html>
