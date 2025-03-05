@@ -1,27 +1,31 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { IoSend } from "react-icons/io5"
+import { useRef, useState } from "react";
+import { IoSend } from "react-icons/io5";
 
 type Status = {
-  type: "success" | "error" | null
-  message: string
-}
+  type: "success" | "error" | null;
+  message: string;
+};
 
 export function Contact() {
-  const [isLoading, setIsLoading] = useState(false)
-  const [status, setStatus] = useState<Status>({ type: null, message: "" })
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<Status>({ type: null, message: "" });
+  
+  // Store form reference
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Store a reference to the form
-    const form = e.currentTarget;
-  
+
     // Reset status before new submission
     setStatus({ type: null, message: "" });
-  
+
+    // Ensure form reference exists
+    const form = formRef.current;
+    if (!form) return;
+
     const formData = new FormData(form);
     const data = {
       name: formData.get("name") as string,
@@ -30,7 +34,7 @@ export function Contact() {
       subject: formData.get("subject") as string,
       message: formData.get("message") as string,
     };
-  
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -39,20 +43,19 @@ export function Contact() {
         },
         body: JSON.stringify(data),
       });
-  
+
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-  
+
       const result = await response.json();
-  
+
       if (result.success) {
         setStatus({
           type: "success",
           message: "Message sent successfully! I'll get back to you soon.",
         });
-        // Reset the form using stored reference
-        form.reset();
+        form.reset(); // Reset form
       } else {
         throw new Error(result.message || "Something went wrong");
       }
@@ -76,7 +79,7 @@ export function Contact() {
 
         <div className="max-w-3xl mx-auto relative">
           <div className="bg-card rounded-[32px] p-8">
-            <form onSubmit={handleSubmit} className="grid gap-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="grid gap-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="sr-only">Full Name</label>
@@ -167,6 +170,6 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
